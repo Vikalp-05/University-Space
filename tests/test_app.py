@@ -152,7 +152,7 @@ def test_availability_logic():
 
 def test_index(client):
     r = client.get("/")
-    assert r.status_code == 200 and "DCU Free Rooms" in r.text
+    assert r.status_code == 200 and "University Space" in r.text
 
 
 def test_campuses(client):
