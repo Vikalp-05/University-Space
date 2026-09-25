@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>University Space</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <main class="wrap">
+    <h1>University Space</h1>
+
+    <div class="controls">
+      <input type="search" id="search" placeholder="Search rooms, e.g. L101" autocomplete="off" aria-label="Search rooms">
+      <select id="building" aria-label="Building">
+        <option value="">All buildings</option>
+      </select>
+    </div>
+
+    <p id="message" class="message"></p>
+    <div id="rooms" class="grid"></div>
+  </main>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>

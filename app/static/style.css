@@ -1,0 +1,66 @@
+:root {
+  --bg: #f6f7f9;
+  --surface: #ffffff;
+  --text: #1b1f24;
+  --muted: #5f6b7a;
+  --border: #dde2e8;
+  --accent: #3b3fb6;
+  --free: #1a7f4b;
+  --free-bg: #e3f5eb;
+  --busy: #b42318;
+  --busy-bg: #fde7e5;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #111418;
+    --surface: #1a1e24;
+    --text: #e7eaee;
+    --muted: #9aa5b3;
+    --border: #2c323b;
+    --accent: #8b8ff0;
+    --free: #5fd394;
+    --free-bg: #173526;
+    --busy: #f28b82;
+    --busy-bg: #3d1a18;
+    color-scheme: dark;
+  }
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font: 16px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+.wrap { max-width: 960px; margin: 0 auto; padding: 32px 16px; }
+h1 { margin: 0 0 20px; font-size: 1.75rem; letter-spacing: -0.01em; }
+
+.controls { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 16px; }
+.controls input, .controls select {
+  font: inherit; padding: 10px 12px; border: 1px solid var(--border); border-radius: 10px;
+  background: var(--surface); color: var(--text); min-width: 0;
+}
+.controls input { flex: 2 1 240px; }
+.controls select { flex: 1 1 200px; }
+.controls input:focus, .controls select:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
+
+.message { color: var(--muted); margin: 0 0 12px; min-height: 1.5em; }
+.message.error { color: var(--busy); }
+.message strong { color: var(--free); }
+
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px; }
+.card {
+  display: flex; justify-content: space-between; align-items: center; gap: 8px;
+  background: var(--surface); border: 1px solid var(--border); border-left: 4px solid var(--border);
+  border-radius: 10px; padding: 12px 14px;
+}
+.card.free { border-left-color: var(--free); }
+.card.busy { border-left-color: var(--busy); }
+.card .code { font-weight: 700; font-size: 1.1rem; overflow-wrap: anywhere; }
+
+.pill { font-size: 0.75rem; font-weight: 700; padding: 2px 8px; border-radius: 999px; white-space: nowrap; }
+.pill.free { color: var(--free); background: var(--free-bg); }
+.pill.busy { color: var(--busy); background: var(--busy-bg); }
+.pill.unknown { color: var(--muted); background: var(--bg); }
